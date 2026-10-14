@@ -1,0 +1,288 @@
+<!--#Задание 1-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Профиль</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <h1>Фрукты:</h1>-->
+
+<!--    {% if fruits %}-->
+<!--        <ol>-->
+<!--        {% for fruit in fruits %}-->
+<!--            <li>{{ fruit }}</li>-->
+<!--        {% endfor %}-->
+<!--        </ol>-->
+<!--    {% else %}-->
+<!--        <p>Фруктов нет</p>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;Задание 2&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Таблица умножения</title>-->
+<!--    <style>-->
+<!--            table {-->
+<!--            border-collapse: collapse;-->
+<!--            width: 100%;-->
+<!--            max-width: 500px;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+
+<!--            th, td {-->
+<!--            border: 1px solid #000000;-->
+<!--            padding: 8px;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--            th {-->
+<!--            background-color: #f2f2f2;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>Таблица умножения 9×9</h2>-->
+
+<!--    <table>-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>X</th>-->
+<!--                {% for i in nums %}-->
+<!--                    <th>{{ i }}</th>-->
+<!--                {% endfor %}-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--            {% for i in nums %}-->
+<!--                <tr>-->
+<!--                    <th>{{ i }}</th>-->
+<!--                    {% for j in nums %}-->
+<!--                        <td>-->
+<!--                            {% widthratio i 1 j %}-->
+<!--                        </td>-->
+<!--                    {% endfor %}-->
+<!--                </tr>-->
+<!--            {% endfor %}-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash;#Задание 3&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Профиль</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Список карточек</h1>-->
+<!--    {% for row in rows %}-->
+<!--    <div class="row">-->
+<!--        {% for item in row %}-->
+<!--        <div class="card">-->
+<!--            <h2>{{ item.name }}</h2>-->
+<!--            <p>Содержимое карточки.</p>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;#Задание 4&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Профиль</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--   <ul>-->
+<!--{% for city in cities %}-->
+
+<!--    {% ifchanged city.0 %}-->
+<!--        <li class="letter-header"><h3>{{ city.0|upper }}</h3></li>-->
+<!--    {% endifchanged %}-->
+
+<!--    <li>{{ city }}</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;#Задание 5&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Профиль</title>-->
+<!--    <style>-->
+<!--        .even {-->
+<!--            background-color: #ffffff; /* Белый фон */-->
+<!--        }-->
+<!--        .odd {-->
+<!--            background-color: #f2f2f2; /* Светло-серый фон */-->
+<!--        }-->
+
+<!--        td {-->
+<!--            padding: 8px 12px;-->
+<!--        }-->
+<!--        table {-->
+<!--            border-collapse: collapse;-->
+<!--            width: 100%;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table>-->
+<!--  {% for student in students %}-->
+<!--    <tr class="{% cycle 'even' 'odd' %}">-->
+<!--      <td>{{ student }}</td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;#Задание 6&ndash;&gt;-->
+
+<!--{% for tag in tags %}-->
+<!--    {{ tag }}{% if not forloop.last %}, {% endif %}-->
+<!--{% endfor %}-->
+
+<!--&lt;!&ndash;# Задание 7&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Обратный отсчет</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <h3>Прямой порядок с обратной нумерацией:</h3>-->
+<!--    <ul>-->
+<!--        {% for step in steps %}-->
+<!--            <li>{{ forloop.revcounter }}. {{ step }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--    <h3>Обратный порядок</h3>-->
+<!--    <ul>-->
+<!--        {% for step in steps reversed %}-->
+<!--            <li>{{ step }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash;#Задание 8&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Список новостей</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--   <ul>-->
+<!--{% for item in news %}-->
+<!--    <li>-->
+<!--        {% if forloop.first %}-->
+<!--            <strong>{{ item.title }}</strong>-->
+<!--        {% elif forloop.last %}-->
+<!--            {{ item.title }} <em>(архив)</em>-->
+<!--        {% else %}-->
+<!--            {{ item.title }}-->
+<!--        {% endif %}-->
+<!--    </li>-->
+<!--{% empty %}-->
+<!--    <li>Новостей нет.</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;#Задание 9&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Оценки студентов</title>-->
+<!--    <style>-->
+<!--        .grade-5 { color: green; font-weight: bold; }-->
+<!--        .grade-2 { color: red; font-weight: bold; }-->
+<!--        .student-block { margin-bottom: 15px; font-family: Arial, sans-serif; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <h2>Дневник</h2>-->
+
+<!--    {% for student, student_grades in grades.items %}-->
+<!--        <div class="student-block">-->
+<!--            <strong>{{ student }}:</strong>-->
+
+<!--            {% for grade in student_grades %}-->
+<!--                <span class="{% if grade == 5 %}grade-5{% elif grade == 2 %}grade-2{% endif %}">-->
+<!--                    {{ grade }}-->
+
+<!--                    ({{ forloop.parentloop.counter }}.{{ forloop.counter }})-->
+<!--                </span>-->
+<!--                {% if not forloop.last %}, {% endif %}-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash;# Задание 10&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Каталог товаров</title>-->
+<!--    <style>-->
+<!--        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }-->
+<!--        .category-title { color: #2c3e50; font-size: 1.2em; }-->
+<!--        .product-list { margin-bottom: 20px; }-->
+<!--        .no-products { color: #7f8c8d; font-style: italic; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <h2>Список товаров по категориям</h2>-->
+
+<!--    <ul>-->
+<!--    {% for category, items in grouped_products.items %}-->
+<!--        <li class="product-list">-->
+<!--            <strong class="category-title">{{ category }}</strong>-->
+<!--            <ul>-->
+<!--            {% for item in items %}-->
+<!--                <li>{{ item.name }}</li>-->
+<!--            {% endfor %}-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--    {% empty %}-->
+<!--        <li class="no-products">Товары не найдены.</li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+
+<!--</body>-->
+<!--</html>-->
